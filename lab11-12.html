@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатория 11-12| Web Technologies</title>
+    <link rel="stylesheet" href="style.css">
+   
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #333;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 10px;
+            margin-top: 10px;
+            padding: 10px;
+            border: 2px solid #696989;
+            background: #fff;
+        }
+
+        .grid-container > div {
+            padding: 20px;
+            border: 1px solid #696989;
+            background: #e0e0e0;
+            text-align: center;
+        }
+
+        /* Классы для разных примеров */
+        .grid-2col { grid-template-columns: 200px 200px; }
+        .grid-3col { grid-template-columns: 150px 150px 150px; }
+        .grid-3col-diff { grid-template-columns: 100px 150px 200px; }
+        .grid-fr { grid-template-columns: 1fr 2fr 1fr; }
+        .grid-repeat { grid-template-columns: repeat(4, 1fr); }
+        .grid-auto { grid-template-columns: auto auto auto; }
+        .grid-gap { grid-template-columns: repeat(3, 100px); gap: 20px 10px; }
+    </style>
+
+</head>
+<body data-theme="light" class="min-h-screen transition-colors duration-300 bg-[var(--bg)] text-[var(--text)]">
+    <custom-navbar></custom-navbar>
+   
+
+<h1>CSS Grid </h1>
+
+<!-- Задание 1 -->
+<h2>1) CSS торларындағы бағандардың саны мен ені</h2>
+<div class="grid-container" style="grid-template-columns: 100px 150px 200px;">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+</div>
+<p>Задание: Создайте грид с 3 столбцами разной ширины и добавьте несколько элементов.</p>
+
+<!-- Задание 2 -->
+<h2>2) Тордағы жолдар мен бағандардың өлшемдерін анықтау (fr units)</h2>
+<div class="grid-container grid-fr">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+</div>
+<p>Задание: Используйте fr для задания ширины столбцов.</p>
+
+<!-- Задание 3 -->
+<h2>3) CSS Grid-та пиксельдер мен fr қолданылуы</h2>
+<div class="grid-container" style="grid-template-columns: 100px 2fr 1fr;">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+</div>
+<p>Задание: Создайте грид, комбинируя пиксели и fr единицы для ширины столбцов.</p>
+
+<!-- Задание 4 -->
+<h2>4) Repeat функциясын қолдану</h2>
+<div class="grid-container grid-repeat">
+    <div>1</div><div>2</div><div>3</div><div>4</div>
+    <div>5</div><div>6</div><div>7</div><div>8</div>
+</div>
+<p>Задание: Используйте repeat() для создания повторяющихся столбцов одинаковой ширины.</p>
+
+<!-- Задание 5 -->
+<h2>5) Өлшемдерді автоматты түрде анықтау (auto, auto-fill)</h2>
+<div class="grid-container grid-auto">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+</div>
+<p>Задание: Используйте auto или auto-fill для автоматической ширины столбцов.</p>
+
+<!-- Задание 6 -->
+<h2>6) CSS грид торларындағы жолдар мен бағандарды қысқарту</h2>
+<div class="grid-container" style="grid-template-columns: 100px 150px 100px; grid-template-rows: 50px 100px;">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+</div>
+<p>Задание: Используйте сокращённые записи для задания столбцов и строк.</p>
+
+<!-- Задание 7 -->
+<h2>7) CSS грид торларындағы жолдарды біріктіру</h2>
+<div class="grid-container" style="grid-template-columns: 100px 100px 100px; grid-template-rows: 50px 50px 50px;">
+    <div style="grid-row: span 2;">1</div>
+    <div>2</div><div>3</div>
+    <div>4</div><div>5</div>
+</div>
+<p>Задание: Объедините строки с помощью grid-row: span N.</p>
+
+<!-- Задание 8 -->
+<h2>8) CSS грид торларындағы бағандарды біріктіру</h2>
+<div class="grid-container" style="grid-template-columns: 50px 50px 50px 50px;">
+    <div style="grid-column: span 2;">1</div>
+    <div>2</div><div>3</div><div>4</div>
+</div>
+<p>Задание: Объедините столбцы с помощью grid-column: span N.</p>
+
+<!-- Задание 9 -->
+<h2>9) Жолдар мен баған торларын аралас біріктіру</h2>
+<div class="grid-container" style="grid-template-columns: 50px 50px 50px; grid-template-rows: 50px 50px 50px;">
+    <div style="grid-column: span 2; grid-row: span 2;">1</div>
+    <div>2</div><div>3</div><div>4</div><div>5</div>
+</div>
+<p>Задание: Объединяйте строки и столбцы одновременно для разных элементов.</p>
+
+<!-- Задание 10 -->
+<h2>10) CSS грид торларындағы бағандар мен жолдар арасындағы қашықтық</h2>
+<div class="grid-container grid-gap">
+    <div>1</div><div>2</div><div>3</div>
+    <div>4</div><div>5</div><div>6</div>
+</div>
+<p>Задание: Используйте gap для задания расстояний между столбцами и строками.</p>
+
+
+    <script src="components/navbar.js"></script>
+    <script>
+        // Lab 10 specific scripts
+        document.querySelectorAll('.task button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const solution = btn.nextElementSibling;
+                solution.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

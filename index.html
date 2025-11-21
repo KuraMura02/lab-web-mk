@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Explorer Marat Kuralai Web Technologies</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <style>
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --secondary: #6b7280;
+            --bg: #1f2937;
+            --text: #f9fafb;
+            --card-bg: #374151;
+        }
+        [data-theme="light"] {
+            --primary: #2563eb;
+            --secondary: #9ca3af;
+            --bg: #f3f4f6;
+            --text: #111827;
+            --card-bg: #ffffff;
+        }
+    </style>
+</head>
+<body data-theme="light" class="min-h-screen transition-colors duration-300 bg-[var(--bg)] text-[var(--text)]">
+    <custom-navbar></custom-navbar>
+    <main class="container mx-auto px-4 py-8">
+        <div class="text-center py-16">
+            <h1 class="text-4xl font-bold mb-4 text-[var(--primary)]">Лаборатории по веб-технологиям</h1>
+            <p class="text-xl mb-8">Выберите лабораторию из меню выше для продолжения</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <a href="/lab10.html" class="p-6 rounded-lg shadow-md bg-[var(--card-bg)] hover:shadow-lg transition-all">
+                    <h2 class="text-xl font-semibold mb-2">Лаборатория 10</h2>
+                 
+                </a>
+                <a href="/lab11-12.html" class="p-6 rounded-lg shadow-md bg-[var(--card-bg)] hover:shadow-lg transition-all">
+                    <h2 class="text-xl font-semibold mb-2">Лаборатория 11-12</h2>
+                    
+                </a>
+                
+                <a href="/lab13-14.html" class="p-6 rounded-lg shadow-md bg-[var(--card-bg)] hover:shadow-lg transition-all">
+                    <h2 class="text-xl font-semibold mb-2">Лаборатория 13-14</h2>
+                    
+                </a>
+                <a href="/lab17.html" class="p-6 rounded-lg shadow-md bg-[var(--card-bg)] hover:shadow-lg transition-all">
+                    <h2 class="text-xl font-semibold mb-2">Лаборатория 17</h2>
+                    
+                </a>
+                <a href="/lab18-19.html" class="p-6 rounded-lg shadow-md bg-[var(--card-bg)] hover:shadow-lg transition-all">
+                    <h2 class="text-xl font-semibold mb-2">Лаборатория 18-19</h2>
+                    
+                </a>
+                <a href="/lab20.html" class="p-6 rounded-lg shadow-md bg-[var(--card-bg)] hover:shadow-lg transition-all">
+                    <h2 class="text-xl font-semibold mb-2">Лаборатория 20</h2>
+                    
+                </a>
+                <a href="/lab21-22.html" class="p-6 rounded-lg shadow-md bg-[var(--card-bg)] hover:shadow-lg transition-all">
+                    <h2 class="text-xl font-semibold mb-2">Лаборатория 21-22</h2>
+                    
+                </a>
+            </div>
+        </div>
+    </main>
+<script src="components/navbar.js"></script>
+    <script>
+        // Theme switcher (can be extended)
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.body.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    </script>
+</body>
+</html>

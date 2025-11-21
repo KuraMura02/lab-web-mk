@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатория 13-14| Web Technologies</title>
+    <link rel="stylesheet" href="style.css">
+   
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-top: 30px;
+            color: #333;
+        }
+        pre {
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #696989;
+            overflow-x: auto;
+        }
+        .result {
+            background: #e0e0e0;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #696989;
+        }
+    </style>
+</head>
+<body data-theme="light" class="min-h-screen transition-colors duration-300 bg-[var(--bg)] text-[var(--text)]">
+    <custom-navbar></custom-navbar>
+   
+<h1>JavaScript — №1–16</h1>
+
+<!-- Задание 1 -->
+<h2>1) Арифметические операции с двумя числами</h2>
+<pre>
+let A = 10;
+let B = 2;
+document.write("Сумма: " + (A + B) + "&lt;br&gt;");
+document.write("Разность: " + (A - B) + "&lt;br&gt;");
+document.write("Произведение: " + (A * B) + "&lt;br&gt;");
+document.write("Деление: " + (A / B));
+</pre>
+<div class="result">
+<script>
+let A = 10;
+let B = 2;
+document.write("Сумма: " + (A + B) + "<br>");
+document.write("Разность: " + (A - B) + "<br>");
+document.write("Произведение: " + (A * B) + "<br>");
+document.write("Деление: " + (A / B));
+</script>
+</div>
+
+<!-- Задание 2 -->
+<h2>2) Сумма двух чисел с присвоением результата</h2>
+<pre>
+let C = 10;
+let d = 5;
+let result = C + d;
+document.write(result);
+</pre>
+<div class="result">
+<script>
+let C = 10;
+let d = 5;
+let result = C + d;
+document.write(result);
+</script>
+</div>
+
+<!-- Задание 3 -->
+<h2>3) Арифметическое среднее трёх чисел</h2>
+<pre>
+let A = 1, B = 2, C = 3;
+let avg = (A + B + C)/3;
+document.write(avg);
+</pre>
+<div class="result">
+<script>
+let A3 = 1, B3 = 2, C3 = 3;
+let avg = (A3 + B3 + C3)/3;
+document.write(avg);
+</script>
+</div>
+
+<!-- Задание 4 -->
+<h2>4) Последовательные операции с переменными</h2>
+<pre>
+let A = 10;
+let B = 5;
+let C = A - B;
+let d = 7;
+let result = C + d;
+document.write(result);
+</pre>
+<div class="result">
+<script>
+let A4 = 10;
+let B4 = 5;
+let C4 = A4 - B4;
+let d4 = 7;
+let result4 = C4 + d4;
+document.write(result4);
+</script>
+</div>
+
+<!-- Задание 5 -->
+<h2>5) Сумма дробных чисел</h2>
+<pre>
+let a = 1.5, b = 0.75;
+document.write(a + b);
+</pre>
+<div class="result">
+<script>
+let a5 = 1.5, b5 = 0.75;
+document.write(a5 + b5);
+</script>
+</div>
+
+<!-- Задание 6 -->
+<h2>6) Строковая переменная</h2>
+<pre>
+let Str = '!!!';
+document.write(Str);
+</pre>
+<div class="result">
+<script>
+let Str6 = '!!!';
+document.write(Str6);
+</script>
+</div>
+
+<!-- Задание 7 -->
+<h2>7) Склеивание строк</h2>
+<pre>
+let s1 = 'Java';
+let s2 = 'Script';
+document.write(s1 + s2);
+</pre>
+<div class="result">
+<script>
+let s1 = 'Java';
+let s2 = 'Script';
+document.write(s1 + s2);
+</script>
+</div>
+
+<!-- Задание 8 -->
+<h2>8) Создание "hello world" через конкатенацию</h2>
+<pre>
+let s1 = 'Сәлем';
+let s2 = 'әлем';
+document.write('hello world');
+</pre>
+<div class="result">
+<script>
+document.write('hello world');
+</script>
+</div>
+
+<!-- Задание 9 -->
+<h2>9) Количество цифр в двух числах</h2>
+<pre>
+let num1 = 123, num2 = 4567;
+let sumDigits = num1.toString().length + num2.toString().length;
+document.write(sumDigits);
+</pre>
+<div class="result">
+<script>
+let num1 = 123, num2 = 4567;
+let sumDigits = num1.toString().length + num2.toString().length;
+document.write(sumDigits);
+</script>
+</div>
+
+<!-- Задание 10 -->
+<h2>10) Последний символ строки</h2>
+<pre>
+let str = 'Hello';
+document.write(str.charAt(str.length-1));
+</pre>
+<div class="result">
+<script>
+let str10 = 'Hello';
+document.write(str10.charAt(str10.length-1));
+</script>
+</div>
+
+<!-- Задание 11 -->
+<h2>11) Предпоследний символ строки</h2>
+<pre>
+let str = 'Hello';
+document.write(str.charAt(str.length-2));
+</pre>
+<div class="result">
+<script>
+let str11 = 'Hello';
+document.write(str11.charAt(str11.length-2));
+</script>
+</div>
+
+<!-- Задание 12 -->
+<h2>12) Площадь квадрата и прямоугольника через prompt</h2>
+<pre>
+let side = prompt("Введите сторону квадрата:");
+let areaSquare = side*side;
+document.write("Площадь квадрата: "+areaSquare);
+
+let a = prompt("Введите длину прямоугольника:");
+let b = prompt("Введите ширину прямоугольника:");
+let areaRect = a*b;
+document.write("&lt;br&gt;Площадь прямоугольника: "+areaRect);
+</pre>
+<div class="result">
+<script>
+let side = prompt("Введите сторону квадрата:");
+let areaSquare = side*side;
+document.write("Площадь квадрата: "+areaSquare+"<br>");
+
+let a12 = prompt("Введите длину прямоугольника:");
+let b12 = prompt("Введите ширину прямоугольника:");
+let areaRect = a12*b12;
+document.write("Площадь прямоугольника: "+areaRect);
+</script>
+</div>
+
+<!-- Задание 13 -->
+<h2>13) Вывод текста курсивом и столбцом чисел</h2>
+<pre>
+document.write("&lt;i&gt;Курсивный текст&lt;/i&gt;&lt;br&gt;");
+for(let i=1;i<=5;i++){document.write(i+"&lt;br&gt;");}
+</pre>
+<div class="result">
+<script>
+document.write("<i>Курсивный текст</i><br>");
+for(let i=1;i<=5;i++){document.write(i+"<br>");}
+</script>
+</div>
+
+<!-- Задание 14 -->
+<h2>14) Площадь круга</h2>
+<pre>
+let r = 5;
+let s = Math.PI*r*r;
+document.write(s);
+</pre>
+<div class="result">
+<script>
+let r = 5;
+let s = Math.PI*r*r;
+document.write(s);
+</script>
+</div>
+
+<!-- Задание 15 -->
+<h2>15) Преобразование температуры из Фаренгейта в Цельсий</h2>
+<pre>
+let TF = 100;
+let TC = (TF-32)*5/9;
+document.write(TC);
+</pre>
+<div class="result">
+<script>
+let TF = 100;
+let TC = (TF-32)*5/9;
+document.write(TC);
+</script>
+</div>
+
+<!-- Задание 16 -->
+<h2>16) Периметр прямоугольника</h2>
+<pre>
+let a = 5, b = 10;
+let p = 2*(a+b);
+document.write(p);
+</pre>
+<div class="result">
+<script>
+let a16 = 5, b16 = 10;
+let p16 = 2*(a16+b16);
+document.write(p16);
+</script>
+</div>
+
+    <script src="components/navbar.js"></script>
+    <script>
+        // Lab 10 specific scripts
+        document.querySelectorAll('.task button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const solution = btn.nextElementSibling;
+                solution.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

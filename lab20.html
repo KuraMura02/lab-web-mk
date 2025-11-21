@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатория 20| Web Technologies</title>
+    <link rel="stylesheet" href="style.css">
+   
+
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        button {
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        button:hover { background-color: #45a049; }
+        iframe {
+            display: block;
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-left: 450px;
+        }
+    </style>
+    
+</head>
+<body data-theme="light" class="min-h-screen transition-colors duration-300 bg-[var(--bg)] text-[var(--text)]">
+    <custom-navbar></custom-navbar>
+   
+
+ <h1>JavaScript терезелермен жұмыс</h1>
+
+    <button onclick="showMessage()">Хабарламаны көрсету</button>
+    <br>
+    <button onclick="openWindow()">Жаңа терезе ашу</button>
+    <br>
+    <button onclick="getFrameTitle()">Фреймдегі беттің атын алу</button>
+
+    <iframe id="myFrame" src="index.html" width="600" height="400"></iframe>
+
+      <script>
+        // Тапсырма 1: Хабарламаны көрсету
+        function showMessage() {
+            alert('Сәлем, мені басыңыз!');
+        }
+
+        // Тапсырма 2: Жаңа терезе ашу
+        function openWindow() {
+            window.open('index.html', '_blank', 'width=800,height=600');
+        }
+
+        // Тапсырма 3: Фреймдегі беттің атын алу
+        function getFrameTitle() {
+            let iframe = document.getElementById('myFrame');
+            try {
+                let iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                alert('Фреймдегі беттің аты: ' + iframeDocument.title);
+            } catch (e) {
+                alert('Қауіпсіздік шектеулері: басқа домендегі бетке кіру мүмкін емес.');
+            }
+        }
+    </script>
+
+    <script src="components/navbar.js"></script>
+    <script>
+        // Lab 10 specific scripts
+        document.querySelectorAll('.task button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const solution = btn.nextElementSibling;
+                solution.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

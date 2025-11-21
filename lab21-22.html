@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатория 21-22| Web Technologies</title>
+    <link rel="stylesheet" href="style.css">
+   
+
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+         h1 { color: #333; }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 8px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            margin-right: 5px;
+        }
+        button:hover { background-color: #45a049; }
+        .comment {
+            background: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .comment button {
+            margin-left: 5px;
+        }
+</style>
+
+</head>
+<body data-theme="light" class="min-h-screen transition-colors duration-300 bg-[var(--bg)] text-[var(--text)]">
+    <custom-navbar></custom-navbar>
+   
+ <h1>jQuery эффектілерін қолдану</h1>
+<button id="showBtn">Мәтінді көрсету</button>
+    <button id="hideBtn">Мәтінді жасыру</button>
+
+    <div id="textMessage" style="display:none; margin-top: 20px;">
+    <p>Бұл жасырып көрсетілген мәтін!</p>
+</div>
+
+
+      <h1>Қонақ кітабы</h1>
+
+    <label for="name">Аты-жөніңіз:</label>
+    <input type="text" id="name" placeholder="Атыңызды енгізіңіз">
+
+    <label for="message">Пікір:</label>
+    <textarea id="message" rows="3" placeholder="Пікіріңізді енгізіңіз"></textarea>
+
+    <button id="submitBtn">Жіберу</button>
+
+    <h2>Пікірлер:</h2>
+    <div id="commentsList"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    // Пікірлерді LocalStorage-дан жүктеу
+    if (localStorage.getItem('comments')) {
+        $("#commentsList").html(localStorage.getItem('comments'));
+    }
+
+    // Жаңа пікір қосу
+    $("#submitBtn").click(function() {
+        const name = $("#name").val().trim();
+        const message = $("#message").val().trim();
+        if (name && message) {
+            const newComment = `<div class="comment"><strong>${name}</strong>: <span class="msgText">${message}</span> 
+                <button class="editBtn">Өңдеу</button>
+                <button class="deleteBtn">Жою</button>
+            </div>`;
+            $("#commentsList").append(newComment);
+            localStorage.setItem('comments', $("#commentsList").html());
+            $("#name").val("");
+            $("#message").val("");
+        } else {
+            alert("Барлық өрістерді толтырыңыз!");
+        }
+    });
+
+    // Пікірді жою
+    $(document).on("click", ".deleteBtn", function() {
+        $(this).parent().fadeOut(300, function() {
+            $(this).remove();
+            localStorage.setItem('comments', $("#commentsList").html());
+        });
+    });
+
+    // Пікірді өңдеу
+    $(document).on("click", ".editBtn", function() {
+        const commentDiv = $(this).parent();
+        const currentText = commentDiv.find(".msgText").text();
+        const newText = prompt("Пікірді өңдеңіз:", currentText);
+        if (newText !== null) {
+            commentDiv.find(".msgText").text(newText);
+            localStorage.setItem('comments', $("#commentsList").html());
+        }
+    });
+});
+</script>
+
+
+    <script src="components/navbar.js"></script>
+    <script>
+        // Lab 10 specific scripts
+        document.querySelectorAll('.task button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const solution = btn.nextElementSibling;
+                solution.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

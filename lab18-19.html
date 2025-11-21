@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатория 18-19| Web Technologies</title>
+    <link rel="stylesheet" href="style.css">
+   
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover { background-color: #45a049; }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .keys-pressed {
+            background: #e0e0e0;
+            padding: 10px;
+            font-family: monospace;
+        }
+    </style>
+
+
+</head>
+<body data-theme="light" class="min-h-screen transition-colors duration-300 bg-[var(--bg)] text-[var(--text)]">
+    <custom-navbar></custom-navbar>
+   
+
+<!DOCTYPE html>
+
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма тексеру және перне бақылау</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        #keyOutput {
+            margin-top: 20px;
+            font-size: 16px;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Форма өрістерін тексеру</h1>
+
+<!-- Форма -->
+<form id="myForm">
+    <label for="name">Атыңыз:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">Электронды пошта:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="age">Жасы:</label>
+    <input type="number" id="age" name="age" min="1" max="120">
+
+    <label for="gender">Жынысы:</label>
+    <select id="gender" name="gender">
+        <option value="">-- Таңдаңыз --</option>
+        <option value="male">Ер</option>
+        <option value="female">Әйел</option>
+        <option value="other">Басқа</option>
+    </select>
+
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password">
+
+    <label for="message">Хабарлама:</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+
+    <button type="submit">Жіберу</button>
+</form>
+
+<div id="errorMessages" class="error"></div>
+
+<h2>Перне басу арқылы мәтін енгізу:</h2>
+<div id="keyOutput">Перне басыңыз...</div>
+
+<script>
+    // Форма тексеру
+    const form = document.getElementById('myForm');
+    const errorMessages = document.getElementById('errorMessages');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        errorMessages.textContent = '';
+        let errors = [];
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const age = document.getElementById('age').value.trim();
+        const gender = document.getElementById('gender').value;
+        const password = document.getElementById('password').value;
+        const message = document.getElementById('message').value.trim();
+
+        if (!name) errors.push('Атыңызды енгізіңіз.');
+        if (!email) errors.push('Электронды поштаңызды енгізіңіз.');
+        if (!age || age <= 0) errors.push('Дұрыс жасыңызды енгізіңіз.');
+        if (!gender) errors.push('Жынысыңызды таңдаңыз.');
+        if (!password || password.length < 6) errors.push('Пароль кемінде 6 таңбадан болуы керек.');
+        if (!message) errors.push('Хабарламаңызды енгізіңіз.');
+
+        if (errors.length > 0) {
+            errorMessages.innerHTML = errors.join('<br>');
+        } else {
+            alert('Форма сәтті жіберілді!');
+            form.reset();
+        }
+    });
+
+    // Перне басуды көрсету
+    const keyOutput = document.getElementById('keyOutput');
+    document.addEventListener('keydown', function(event) {
+        keyOutput.textContent = `Сіз басқан перне: ${event.key}`;
+    });
+
+    // Оқиға бағытын өзгерту мысалы (тек батырманы өңдейміз)
+    form.addEventListener('click', function(event) {
+        if (event.target.tagName === 'BUTTON') {
+            alert('Батырмаға басылды, бірақ форма әдеттегідей жіберілмейді.');
+            event.stopPropagation(); // Жоғары қарай таралуды тоқтату
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
+    <script src="components/navbar.js"></script>
+    <script>
+        // Lab 10 specific scripts
+        document.querySelectorAll('.task button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const solution = btn.nextElementSibling;
+                solution.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

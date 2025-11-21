@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатория 17| Web Technologies</title>
+    <link rel="stylesheet" href="style.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-top: 30px;
+            color: #333;
+        }
+        pre {
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #696989;
+            overflow-x: auto;
+        }
+        .result {
+            background: #e0e0e0;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #696989;
+        }
+    </style>
+
+
+</head>
+<body data-theme="light" class="min-h-screen transition-colors duration-300 bg-[var(--bg)] text-[var(--text)]">
+    <custom-navbar></custom-navbar>
+   
+
+<h1>Многомерные массивы в JavaScript</h1>
+
+<!-- Перебор многомерных массивов -->
+<h2>1) Перебор многомерного массива</h2>
+<pre>
+let matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+for (let i = 0; i &lt; matrix.length; i++) {
+    for (let j = 0; j &lt; matrix[i].length; j++) {
+        document.write(matrix[i][j] + " ");
+    }
+    document.write("&lt;br&gt;");
+}
+</pre>
+<div class="result">
+<script>
+let matrix1 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+for (let i = 0; i < matrix1.length; i++) {
+    for (let j = 0; j < matrix1[i].length; j++) {
+        document.write(matrix1[i][j] + " ");
+    }
+    document.write("<br>");
+}
+</script>
+</div>
+
+<!-- Заполнение многомерного массива -->
+<h2>2) Заполнение многомерного массива</h2>
+<pre>
+let rows = 3;
+let cols = 3;
+let arr = [];
+
+for (let i = 0; i &lt; rows; i++) {
+    arr[i] = [];
+    for (let j = 0; j &lt; cols; j++) {
+        arr[i][j] = i+j;
+    }
+}
+console.log(arr);
+</pre>
+<div class="result">
+<script>
+let rows = 3;
+let cols = 3;
+let arr2 = [];
+
+for (let i = 0; i < rows; i++) {
+    arr2[i] = [];
+    for (let j = 0; j < cols; j++) {
+        arr2[i][j] = i + j;
+        document.write(arr2[i][j] + " ");
+    }
+    document.write("<br>");
+}
+</script>
+</div>
+
+<!-- Проблемы при заполнении многомерных массивов -->
+<h2>3) Проблемы при заполнении многомерных массивов</h2>
+<pre>
+// Неправильное создание одинаковых ссылок
+let badArr = Array(3).fill(Array(3).fill(0));
+badArr[0][0] = 1; 
+console.log(badArr);
+// Все строки изменились!
+</pre>
+<div class="result">
+<script>
+let badArr = Array(3).fill(Array(3).fill(0));
+badArr[0][0] = 1;
+document.write("Неправильное заполнение:<br>");
+for (let i = 0; i < badArr.length; i++) {
+    for (let j = 0; j < badArr[i].length; j++) {
+        document.write(badArr[i][j] + " ");
+    }
+    document.write("<br>");
+}
+</script>
+</div>
+
+<!-- Заполнение многомерного массива по порядку -->
+<h2>4) Заполнение многомерного массива по порядку</h2>
+<pre>
+let arr = [];
+let count = 1;
+for (let i = 0; i &lt; 3; i++) {
+    arr[i] = [];
+    for (let j = 0; j &lt; 3; j++) {
+        arr[i][j] = count++;
+    }
+}
+console.log(arr);
+</pre>
+<div class="result">
+<script>
+let arr4 = [];
+let count = 1;
+for (let i = 0; i < 3; i++) {
+    arr4[i] = [];
+    for (let j = 0; j < 3; j++) {
+        arr4[i][j] = count++;
+        document.write(arr4[i][j] + " ");
+    }
+    document.write("<br>");
+}
+</script>
+</div>
+    <script src="components/navbar.js"></script>
+    <script>
+        // Lab 10 specific scripts
+        document.querySelectorAll('.task button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const solution = btn.nextElementSibling;
+                solution.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

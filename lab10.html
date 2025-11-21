@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатория 10 | Web Technologies</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .lab-content {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        /* Lab 10 specific styles */
+        #lab10 {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            border-left: 4px solid #3b82f6;
+        }
+        #lab10 h1 {
+            color: #2563eb;
+        }
+        #lab10 .task {
+            background: white;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    </style>
+
+    <style>
+body { font-family: Arial; padding: 20px; }
+h2 { margin-top: 40px; }
+
+ .responsive-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+.parent {
+    display: flex;
+    border: 2px solid #d00;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+.child {
+    border: 1px solid #080;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 2px;
+}
+
+body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    /* ---- Негізгі контейнер ---- */
+    .container {
+        display: flex;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .box {
+        flex: 1;
+        padding: 20px;
+        background: #e3f2fd;
+        border: 2px solid #1976d2;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, button {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        /* Медиасұраныс: 600px немесе одан кіші экрандар (телефондар) */
+        @media (max-width: 600px) {
+            form {
+                width: 90%;
+                padding: 15px;
+            }
+
+            input, button {
+                padding: 8px;
+                font-size: 15px;
+            }
+        }
+    /* =============================== */
+    /*      МЕДИАСҰРАНЫСТАР            */
+    /* =============================== */
+
+    /* --- Планшет: ені 800px-тен кіші --- */
+    @media (max-width: 800px) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+        }
+        .box {
+            width: 80%;
+        }
+    }
+
+    /* --- Телефон: ені 500px-тен кіші --- */
+    @media (max-width: 500px) {
+        body {
+            padding: 10px;
+        }
+        .box {
+            width: 100%;
+            font-size: 18px;
+        }
+    }
+
+     /* 768px дейін — планшет өлшемі */
+        @media (max-width: 768px) {
+            .responsive-image {
+                width: 80%;
+            }
+        }
+
+        /* 480px дейін — телефон өлшемі */
+        @media (max-width: 480px) {
+            .responsive-image {
+                width: 100%;
+            }
+        }
+</style>
+
+<style>
+    .movies-container {
+    background: #6c7a89; /* только для этого блока */
+    padding: 20px;
+}
+.movies-container .container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.movies-container .card {
+    width: 280px;
+    padding: 15px;
+    border: 1px solid #9da6ad;
+    color: #2c2c2c;
+}
+.movies-container .card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+.movies-container .card h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+.movies-container .card p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+.card {
+    font-family: Arial, sans-serif;
+    font-weight: normal; /* по умолчанию */
+}
+.card span.bold {
+    font-weight: 700; /* жирность */
+}
+
+
+
+</style>
+</head>
+    <custom-navbar></custom-navbar>
+   
+
+<h1>Flexbox —  49–58</h1>
+<p> 1	Интернет  желісінен Дмитрий Трепачевтың «Высший учебник по 
+    HTML и CSS» оқулығының https://w	ww.javascript.dp.ua/ru/markup/book/supreme.html   
+    «Продвинутая работа с флексбоксами» тарауы бойынша 49-58 аралығындағы тапсырмаларды 
+    орындаңыздар.</p>
+
+<!-- 49 Жадность flex-grow -->
+<h2>49 — Жадность flex элементов (flex-grow)</h2>
+<div class="parent" style="width:500px;">
+    <div class="child" style="width:100px; flex-grow:3;">1</div>
+    <div class="child" style="width:100px; flex-grow:1;">2</div>
+</div>
+
+
+<!-- 50 Нулевая жадность -->
+<h2>50 — Нулевая жадность (flex-grow:0)</h2>
+<div class="parent" style="width:400px;">
+    <div class="child" style="width:200px; flex-grow:0;">1</div>
+    <div class="child" style="width:100px; flex-grow:1;">2</div>
+</div>
+
+
+<!-- 51 Ширина + жадность -->
+<h2>51 — Жадность и ширина flex блоков</h2>
+<div class="parent" style="width:600px;">
+    <div class="child" style="width:200px; flex-grow:1;">1</div>
+    <div class="child" style="width:150px; flex-grow:3;">2</div>
+</div>
+
+
+<!-- 52 Сжатие при недостатке места -->
+<h2>52 — Сжатие при недостатке места (flex-shrink)</h2>
+<div class="parent" style="width:300px;">
+    <div class="child" style="width:200px; flex-shrink:1;">1</div>
+    <div class="child" style="width:200px; flex-shrink:1;">2</div>
+</div>
+
+
+<!-- 53 Фактор сжимаемости -->
+<h2>53 — Фактор сжимаемости (flex-shrink)</h2>
+<div class="parent" style="width:300px;">
+    <div class="child" style="width:200px; flex-shrink:1;">1</div>
+    <div class="child" style="width:200px; flex-shrink:3;">2</div>
+</div>
+
+
+<!-- 54 Свойство flex (сокращённая запись) -->
+<h2>54 — Свойство flex (сокращённая запись)</h2>
+<div class="parent" style="width:500px;">
+    <div class="child" style="flex:1 1 100px;">1</div>
+    <div class="child" style="flex:3 1 100px;">2</div>
+</div>
+
+
+<!-- 55 Проблемы плиточки -->
+<h2>55 — Проблема плиточки на флексах</h2>
+<div class="parent" style="flex-wrap:wrap; width:300px;">
+    <div class="child" style="width:100px;">1</div>
+    <div class="child" style="width:100px;">2</div>
+    <div class="child" style="width:100px;">3</div>
+</div>
+
+
+<!-- 56 Плиточка с корректными отступами -->
+<h2>56 — Плиточка с корректными отступами (gap)</h2>
+<div class="parent" style="flex-wrap:wrap; width:300px; gap:10px;">
+    <div class="child" style="width:100px;">1</div>
+    <div class="child" style="width:100px;">2</div>
+    <div class="child" style="width:100px;">3</div>
+</div>
+
+
+<!-- 57 Плиточка с автошириной -->
+<h2>57 — Плиточка с автошириной блоков</h2>
+<div class="parent" style="flex-wrap:wrap; width:400px;">
+    <div class="child" style="flex:1 1 auto;">1</div>
+    <div class="child" style="flex:1 1 auto;">2</div>
+    <div class="child" style="flex:1 1 auto;">3</div>
+</div>
+
+
+<!-- 58 Автоширина + отступы -->
+<h2>58 — Отступы + автоширина</h2>
+<div class="parent" style="flex-wrap:wrap; width:400px; gap:10px;">
+    <div class="child" style="flex:1 1 auto;">1</div>
+    <div class="child" style="flex:1 1 auto;">2</div>
+    <div class="child" style="flex:1 1 auto;">3</div>
+</div>
+
+<p>2	Flexbox және медиасұраныстар. Flexbox көмегімен адаптивті орналасуды ұйымдастыру 
+    және медиасұраныстар арқылы оны динамикалық түрде өзгерту..</p>
+
+    <h1>Flexbox және медиасұраныстар мысалы</h1>
+
+<p>
+Бұл бетте Flexbox арқылы үш блок қатар орналасқан.  
+Экран кішірейген сайын медиасұраныстар арқылы орналасу өзгереді:
+</p>
+
+<ul>
+    <li><b>Үлкен экранда</b> – үш блок қатар тұрады.</li>
+    <li><b>Планшетте (800px ↓)</b> – блоктар тігінен орналасады.</li>
+    <li><b>Телефонда (500px ↓)</b> – толық экранды алады.</li>
+</ul>
+
+<div class="container">
+    <div class="box">Блок 1</div>
+    <div class="box">Блок 2</div>
+    <div class="box">Блок 3</div>
+</div>
+
+
+ <h2>3 Адаптивті кескін мысалы</h2>
+
+    <p>Адаптивті кескіндер. Кескіндерді медиасұраныстар арқылы адаптивті түрде көрсету..</p>
+
+    <img src="2025-07-13_21-22-18.png" alt="Сурет" class="responsive-image">
+
+  <h2>4 Адаптивті форма үлгісі</h2>
+
+    <form action="#">
+        <label for="name">Аты-жөніңіз:</label>
+        <input type="text" id="name" name="name" placeholder="Атыңызды енгізіңіз">
+
+        <label for="email">Электрондық пошта:</label>
+        <input type="email" id="email" name="email" placeholder="Email енгізіңіз">
+
+        <button type="submit">Жіберу</button>
+    </form>
+
+      <h2>5 Flexbox-ты қолданып келесі веб-парақ макетін әзірлеңіздер.</h2>
+        <div class="movies-container">
+    <div class="container">
+        <!-- 1 карточка -->
+        <div class="card">
+            <h2>Зеленая миля</h2>
+            <img src="1.jpg" alt="Зеленая миля">
+
+            <p><span class="bold">Год производства:</span> 1999</p>
+            <p><span class="bold">Страна:</span> США</p>
+            <p><span class="bold">Жанр:</span> фэнтези, драма, криминал, детектив</p>
+            <p><span class="bold">Режиссер:</span> Фрэнк Дарабонт</p>
+        </div>
+
+        <!-- 2 карточка -->
+        <div class="card">
+            <h2>Сумерки</h2>
+            <img src="2.jpg" alt="Сумерки">
+
+            <p><span class="bold">Год производства:</span> 2008</p>
+            <p><span class="bold">Страна:</span> США</p>
+            <p><span class="bold">Жанр:</span> фэнтези, драма, мелодрама</p>
+            <p><span class="bold">Режиссер:</span> Кэтрин Хардвик</p>
+        </div>
+
+        <!-- 3 карточка -->
+        <div class="card">
+            <h2>Аватар</h2>
+            <img src="3.jpg" alt="Аватар">
+
+            <p><span class="bold">Год производства:</span> 2009</p>
+            <p><span class="bold">Страна:</span> США, Великобритания</p>
+            <p><span class="bold">Жанр:</span> фантастика, боевик, драма, приключения</p>
+            <p><span class="bold">Режиссер:</span> Джеймс Кэмерон</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <script src="components/navbar.js"></script>
+    <script>
+        // Lab 10 specific scripts
+        document.querySelectorAll('.task button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const solution = btn.nextElementSibling;
+                solution.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
